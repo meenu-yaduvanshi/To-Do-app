@@ -21,6 +21,8 @@ function App() {
 	}
 
 	function handleClick() {
+		// Checking for empty strings so that users don't add them as tasks
+		// .trim() removes the spaces from front & end of a string
 		if (inputValue.trim() !== "") {
 			const newTaskList = [...taskList]; // Storing old tasks in a new variable
 			newTaskList.push(inputValue);
@@ -86,7 +88,7 @@ function App() {
 	}
 
 	function saveClick() {
-		let newTaskList = [...taskList];
+		const newTaskList = [...taskList];
 		newTaskList[clickedIndex] = editText;
 		setTaskList(newTaskList);
 		setClickedIndex(null);
