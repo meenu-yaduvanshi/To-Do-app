@@ -10,14 +10,16 @@ function TaskList(props) {
 				props.taskList.map((task, index) => {
 					return (
 						<div className="taskDiv" key={index}>
-							{index === "clickedIndex" ? (
+							{index === props.clickedIndex ? (
 								<>
-									{/* <input
+									<input
 										className="edit-field"
 										defaultValue={task}
-										onChange={handleChange}
+										onChange={props.handleEditChange}
 									/>
-									<button onClick={saveClick}>Save</button> */}
+									<button onClick={props.saveClick}>
+										Save
+									</button>
 								</>
 							) : (
 								<>
@@ -27,9 +29,11 @@ function TaskList(props) {
 									>
 										Done
 									</button>
-									{/* <button onClick={() => editClick(index)}>
+									<button
+										onClick={() => props.editClick(index)}
+									>
 										Edit
-									</button> */}
+									</button>
 									<button
 										onClick={() =>
 											props.deleteClick("taskList", index)
